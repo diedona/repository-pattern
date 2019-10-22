@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDona.RepositoryPattern.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDona.RepositoryPattern.WebApi", "DDona.RepositoryPattern.WebApi\DDona.RepositoryPattern.WebApi.csproj", "{A2CF204E-9BFD-489B-A7F9-A18E38FD9016}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDona.RepositoryPattern.Service", "DDona.RepositoryPattern.Service\DDona.RepositoryPattern.Service.csproj", "{D24652BB-D408-42BF-A3AF-74A73E11C29A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A2CF204E-9BFD-489B-A7F9-A18E38FD9016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2CF204E-9BFD-489B-A7F9-A18E38FD9016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2CF204E-9BFD-489B-A7F9-A18E38FD9016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D24652BB-D408-42BF-A3AF-74A73E11C29A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D24652BB-D408-42BF-A3AF-74A73E11C29A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D24652BB-D408-42BF-A3AF-74A73E11C29A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24652BB-D408-42BF-A3AF-74A73E11C29A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

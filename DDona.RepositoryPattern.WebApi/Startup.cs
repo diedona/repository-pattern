@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DDona.RepositoryPattern.Domain.Interfaces;
 using DDona.RepositoryPattern.Domain.Interfaces.Repositories;
+using DDona.RepositoryPattern.Domain.Interfaces.Services;
 using DDona.RepositoryPattern.Infra.Contexts;
 using DDona.RepositoryPattern.Infra.Repositories;
+using DDona.RepositoryPattern.Infra.UoW;
+using DDona.RepositoryPattern.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +35,7 @@ namespace DDona.RepositoryPattern.WebApi
         {
             AddDbContext(services);
             AddRepositories(services);
+            AddServices(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -59,6 +64,12 @@ namespace DDona.RepositoryPattern.WebApi
         private void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        private void AddServices(IServiceCollection services)
+        {
+            services.AddScoped<IPersonService, PersonService>();
         }
     }
 }
