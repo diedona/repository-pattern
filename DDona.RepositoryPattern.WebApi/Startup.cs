@@ -63,7 +63,6 @@ namespace DDona.RepositoryPattern.WebApi
 
         private void AddRepositories(IServiceCollection services)
         {
-            services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
