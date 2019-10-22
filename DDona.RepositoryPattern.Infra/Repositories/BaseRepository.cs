@@ -20,33 +20,33 @@ namespace DDona.RepositoryPattern.Infra.Repositories
             _dbSet = _db.Set<T>();
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             _dbSet.Remove(entity);
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             T entity = this.GetById(id);
             this.Delete(entity);
         }
 
-        public IList<T> Get()
+        public virtual IList<T> Get()
         {
             return _dbSet.ToList();
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return _dbSet.Find(id);
         }
 
-        public void Save(T entity)
+        public virtual void Save(T entity)
         {
             _dbSet.Add(entity);
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             _db.Entry<T>(entity).State = EntityState.Modified;
         }
