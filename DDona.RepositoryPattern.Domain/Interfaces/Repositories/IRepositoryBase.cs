@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DDona.RepositoryPattern.Domain.Interfaces.Repositories
 {
-    public interface IRepositoryBase<T> where T: class, IEntity
+    public interface IRepositoryBase<T> : IDisposable where T: class, IEntity
     {
         IList<T> Get();
         T GetById(int id);
