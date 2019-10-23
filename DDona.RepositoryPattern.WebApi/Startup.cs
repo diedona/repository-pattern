@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using DDona.RepositoryPattern.Domain.Interfaces;
 using DDona.RepositoryPattern.Domain.Interfaces.Repositories;
 using DDona.RepositoryPattern.Domain.Interfaces.Services;
+using DDona.RepositoryPattern.Domain.Mapping;
 using DDona.RepositoryPattern.Infra.Contexts;
 using DDona.RepositoryPattern.Infra.Repositories;
 using DDona.RepositoryPattern.Infra.UoW;
@@ -36,6 +38,7 @@ namespace DDona.RepositoryPattern.WebApi
             AddDbContext(services);
             AddRepositories(services);
             AddServices(services);
+            AddAutomapper(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -69,6 +72,11 @@ namespace DDona.RepositoryPattern.WebApi
         private void AddServices(IServiceCollection services)
         {
             services.AddScoped<IPersonService, PersonService>();
+        }
+
+        private void AddAutomapper(IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(EntityToDTOMapper));
         }
     }
 }

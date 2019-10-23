@@ -1,4 +1,6 @@
-﻿using DDona.RepositoryPattern.Domain.Entities;
+﻿using AutoMapper;
+using DDona.RepositoryPattern.Domain.DataTransferObjects;
+using DDona.RepositoryPattern.Domain.Entities;
 using DDona.RepositoryPattern.Domain.Interfaces;
 using DDona.RepositoryPattern.Domain.Interfaces.Services;
 using System;
@@ -9,21 +11,27 @@ namespace DDona.RepositoryPattern.Service
 {
     public class PersonService : IPersonService
     {
-        private IUnitOfWork _uow;
+        private readonly IUnitOfWork _uow;
+        private readonly IMapper _mapper;
 
-        public PersonService(IUnitOfWork uow)
+        public PersonService(IUnitOfWork uow, IMapper mapper)
         {
             _uow = uow;
+            _mapper = mapper;
         }
 
-        public IList<Person> GetAllActivePeople()
+        public IList<PersonWithStatusDTO> GetAllActivePeople()
         {
-            return _uow.PersonRepository.Get();
+            var domain = _uow.PersonRepository.Get();
+            var dto = _mapper.Map<IList<PersonWithStatusDTO>>(domain);
+            return dto;
         }
 
-        public IList<Person> GetAllInactivePeople()
+        public IList<PersonWithStatusDTO> GetAllInactivePeople()
         {
-            return _uow.PersonRepository.GetInactive();
+            var domain =  _uow.PersonRepository.GetInactive();
+            var dto = _mapper.Map<IList<PersonWithStatusDTO>>(domain);
+            return dto;
         }
     }
 }
